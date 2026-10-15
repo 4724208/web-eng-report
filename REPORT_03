@@ -1,0 +1,26 @@
+第3回 Webエンジニアリング
+ 
+学籍番号 4724208
+イメージとコンテナの違い
+　イメージは元になるもので、コンテナはイメージをもとに作られた実際に動かすもの。
+
+Dockerfileの各行の役割
+FROMはdockerhubのどのイメージを使うか
+COPYはカレントディレクトリのindex.htmlをエンジンnginxのhtml配信用ディレクトリにコピーする
+
+@4724208 ➜ /workspaces/web-eng-docker (class-03-docker) $ curl http://localhost:8080
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Web Engineering Class 03</title>
+    </head>
+    <body>
+        <h1>Dockerで配信中</h1>
+        <p>Web Engineering Class 03</p>
+    </body>
+
+@4724208 ➜ /workspaces/web-eng-docker (class-03-docker) $ docker compose ps
+NAME                   IMAGE                                                                     COMMAND                  SERVICE   CREATED          STATUS          PORTS
+web-eng-docker-web-1   sha256:b3212911d8b026c811f7501f94bae5683dd9159ec69ba35c1fb71676ebeaebd1   "/docker-entrypoint.…"   web       35 seconds ago   Up 34 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
